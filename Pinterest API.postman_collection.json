@@ -1,0 +1,634 @@
+{
+	"info": {
+		"_postman_id": "d32ce938-c29b-4a44-b976-8aace52da23e",
+		"name": "Pinterest API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26293599"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Sign In",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"tommyteo@example.com\",\r\n    \"password\": \"testpassword\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/user/sign-in",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"sign-in"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sign Up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"tommyteo@example.com\",\r\n  \"password\": \"testpassword\",\r\n  \"fullName\": \"Test User\",\r\n  \"age\": 30,\r\n  \"avatar\": \"https://example.com/avatar.jpg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/user/sign-up",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"sign-up"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User By ID",
+					"request": {
+						"auth": {
+							"type": "jwt",
+							"jwt": [
+								{
+									"key": "header",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "isSecretBase64Encoded",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "secret",
+									"value": "TeoCoder",
+									"type": "string"
+								},
+								{
+									"key": "algorithm",
+									"value": "HS256",
+									"type": "string"
+								},
+								{
+									"key": "payload",
+									"value": "{}",
+									"type": "string"
+								},
+								{
+									"key": "headerPrefix",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "queryParamKey",
+									"value": "token",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJJZCI6MTEsImVtYWlsIjoidGVzdEBleGFtcGxlLmNvbSJ9LCJpYXQiOjE2OTYwNjAwMjAsImV4cCI6MTY5NjA2MzYyMH0.KChRLC3-2bRxuDag7bX73Rh3tkiQWTeuYAnECmwL2Lg",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domain}}/user/get-user-by-id/10",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"user",
+								"get-user-by-id",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJJZCI6MTEsImVtYWlsIjoidGVzdEBleGFtcGxlLmNvbSJ9LCJpYXQiOjE2OTYwNTk0NTIsImV4cCI6MTY5NjA1OTc1Mn0.EcdVnlqH6Zp5IrGU1JLf_crNUQC0bOPeB0dykRk-V3A",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJJZCI6MTEsImVtYWlsIjoidGVzdEBleGFtcGxlLmNvbSJ9LCJpYXQiOjE2OTYwNjE4MjksImV4cCI6MTY5NjA2NTQyOX0.1fLrPexMd6acGhJ-5cQhQXA8sbbv-C_Hj_6iNCO3K0w",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/user/get-user",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"user",
+								"get-user"
+							],
+							"query": [
+								{
+									"key": "Authorization",
+									"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im5ndW9pX2R1bmdfaWQiOjExLCJlbWFpbCI6InRlc3RAZXhhbXBsZS5jb20iLCJtYXRfa2hhdSI6IiQyYiQxMCRQaUFoSkl2SllETGNpSlhmcEhQdU1PLm1QRW5laVo3NUZzMTk0NzZySFpvSnk2aC9LenFILiIsImhvX3RlbiI6IlRlc3QgVXNlciIsInR1b2kiOjMwLCJhbmhfZGFpX2RpZW4iOm51bGwsImZhY2Vib29rX2FwcF9pZCI6bnVsbH0sImlhdCI6MTY5NjA1ODk0OCwiZXhwIjoxNjk2MDU5MjQ4fQ.httEljq48nMXeGFEr7mqQ6wDQ6Z3S9N4G9bvz6eeiCo",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Profile",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJJZCI6MTEsImVtYWlsIjoidGVzdEBleGFtcGxlLmNvbSJ9LCJpYXQiOjE2OTYwNjIyNDgsImV4cCI6MTY5NjA2NTg0OH0.79UEcv7xGaIa6uZwHonu4lZkweqR7Zjdl4oS-onaW8s",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": 2,\r\n    \"email\": \"joinwick@gmail.com\",\r\n    \"password\": \"matcho\",\r\n    \"fullName\": \"Join Wick\",\r\n    \"age\": 30,\r\n    \"avatar\": \"/path/to/avatar.jpg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/user/update-user/2",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"user",
+								"update-user",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJJZCI6MTEsImVtYWlsIjoidGVzdEBleGFtcGxlLmNvbSJ9LCJpYXQiOjE2OTYwNjIyNDgsImV4cCI6MTY5NjA2NTg0OH0.79UEcv7xGaIa6uZwHonu4lZkweqR7Zjdl4oS-onaW8s",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domain}}/user/delete-user/12",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"user",
+								"delete-user",
+								"12"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Review",
+			"item": [
+				{
+					"name": "Get Comment",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJJZCI6MTMsImVtYWlsIjoidG9tbXl0ZW9AZXhhbXBsZS5jb20ifSwiaWF0IjoxNjk2MDY0NTU2LCJleHAiOjE2OTYwNjgxNTZ9.-M1QUImO8HhB2oMPaB4Nt0oCHnDfM1NZVo6mqZhIwB4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domain}}/review/get-review-by-image-id/2",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"review",
+								"get-review-by-image-id",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create review",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJJZCI6MTMsImVtYWlsIjoidG9tbXl0ZW9AZXhhbXBsZS5jb20ifSwiaWF0IjoxNjk2MDY0NTU2LCJleHAiOjE2OTYwNjgxNTZ9.-M1QUImO8HhB2oMPaB4Nt0oCHnDfM1NZVo6mqZhIwB4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"imageId\": 10,\r\n  \"comment\": \"awwwwwww đẹp dọ\" \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/review/create-review/1",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"review",
+								"create-review",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Review",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJJZCI6MTMsImVtYWlsIjoidG9tbXl0ZW9AZXhhbXBsZS5jb20ifSwiaWF0IjoxNjk2MDY0NTU2LCJleHAiOjE2OTYwNjgxNTZ9.-M1QUImO8HhB2oMPaB4Nt0oCHnDfM1NZVo6mqZhIwB4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\": \"Xấu quãi cả chưởng chứ\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/review/update-review?userId=1&reviewId=1",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"review",
+								"update-review"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "1"
+								},
+								{
+									"key": "reviewId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Review",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJJZCI6MTMsImVtYWlsIjoidG9tbXl0ZW9AZXhhbXBsZS5jb20ifSwiaWF0IjoxNjk2MDY0NTU2LCJleHAiOjE2OTYwNjgxNTZ9.-M1QUImO8HhB2oMPaB4Nt0oCHnDfM1NZVo6mqZhIwB4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domain}}/review/delete-review?userId=1&reviewId=11",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"review",
+								"delete-review"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "1"
+								},
+								{
+									"key": "reviewId",
+									"value": "11"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Image",
+			"item": [
+				{
+					"name": "Get Image",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJJZCI6MTMsImVtYWlsIjoidG9tbXl0ZW9AZXhhbXBsZS5jb20ifSwiaWF0IjoxNjk2MDY2MzUxLCJleHAiOjE2OTYwNjk5NTF9.EPoKX14O2frEcmJ1A0O15H9r2Zgc3XWG0B0At5VWPTc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/img/get-img?keywords=Hình",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"img",
+								"get-img"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "keywords",
+									"value": "Hình"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Image By image-id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJJZCI6MTMsImVtYWlsIjoidG9tbXl0ZW9AZXhhbXBsZS5jb20ifSwiaWF0IjoxNjk2MDY2MzUxLCJleHAiOjE2OTYwNjk5NTF9.EPoKX14O2frEcmJ1A0O15H9r2Zgc3XWG0B0At5VWPTc",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domain}}/img/get-image/2",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"img",
+								"get-image",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Image by user-id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJJZCI6MTMsImVtYWlsIjoidG9tbXl0ZW9AZXhhbXBsZS5jb20ifSwiaWF0IjoxNjk2MDY2MzUxLCJleHAiOjE2OTYwNjk5NTF9.EPoKX14O2frEcmJ1A0O15H9r2Zgc3XWG0B0At5VWPTc",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domain}}/img/get-img-by-user-id/3",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"img",
+								"get-img-by-user-id",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Image",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/img/create-image",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"img",
+								"create-image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Image",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/img/update-image",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"img",
+								"update-image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete-Image",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/img/delete-image",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"img",
+								"delete-image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload-image",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/img/upload-image",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"img",
+								"upload-image"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SaveImage",
+			"item": [
+				{
+					"name": "Get SaveImage",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJJZCI6MTMsImVtYWlsIjoidG9tbXl0ZW9AZXhhbXBsZS5jb20ifSwiaWF0IjoxNjk2MDYzNjg5LCJleHAiOjE2OTYwNjcyODl9.VUJtzxyH8Ovdp8E7ThB5h3aq05WasGOrYjIyG1HiOcE",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domain}}/save-image/get-save?imageId =2",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"save-image",
+								"get-save"
+							],
+							"query": [
+								{
+									"key": "imageId ",
+									"value": "2"
+								},
+								{
+									"key": "userId ",
+									"value": "2",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save Image",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/save-image/save",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"save-image",
+								"save"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "domain",
+			"value": "http://localhost:8080/api"
+		}
+	]
+}
